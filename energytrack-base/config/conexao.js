@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Pool de conexões com os dados que estão no arquivo .env
+
 export const banco = mysql.createPool({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
@@ -14,7 +14,7 @@ export const banco = mysql.createPool({
   connectionLimit: 10
 });
 
-// Testa se a conexão com o banco está funcionando
+
 export async function conexao() {
   const conexao = await banco.getConnection();
 

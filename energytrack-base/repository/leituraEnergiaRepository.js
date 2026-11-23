@@ -1,6 +1,6 @@
 import { banco } from "../config/database.js";
 
-// Cadastra uma leitura de energia
+
 export async function cadastrar(leitura) {
   const sql = `
     INSERT INTO leituras_energia
@@ -18,7 +18,7 @@ export async function cadastrar(leitura) {
   return resultado.insertId;
 }
 
-// Lista todas as leituras
+
 export async function listar() {
   const sql = "SELECT * FROM leituras_energia ORDER BY id";
   const [resultado] = await banco.query(sql);
@@ -26,7 +26,7 @@ export async function listar() {
   return resultado;
 }
 
-// Lista as leituras junto com os dados da máquina (JOIN)
+
 export async function listarDetalhadas() {
   const sql = `
     SELECT
@@ -47,7 +47,7 @@ export async function listarDetalhadas() {
   return resultado;
 }
 
-// Busca uma leitura pelo ID
+
 export async function buscarPorId(id) {
   const sql = `
     SELECT
@@ -65,7 +65,7 @@ export async function buscarPorId(id) {
   return resultado[0];
 }
 
-// Atualiza uma leitura
+
 export async function atualizar(id, leitura) {
   const sql = `
     UPDATE leituras_energia
@@ -84,7 +84,7 @@ export async function atualizar(id, leitura) {
   return resultado.affectedRows;
 }
 
-// Exclui uma leitura
+
 export async function deletar(id) {
   const sql = "DELETE FROM leituras_energia WHERE id = ?";
   const [resultado] = await banco.query(sql, [id]);

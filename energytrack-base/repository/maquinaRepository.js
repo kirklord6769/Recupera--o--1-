@@ -1,6 +1,6 @@
 import { banco } from "../config/database.js";
 
-// Cadastra uma máquina e retorna o ID criado
+
 export async function cadastrar(maquina) {
   const sql = `
     INSERT INTO maquinas (codigo, nome, setor, status)
@@ -17,7 +17,7 @@ export async function cadastrar(maquina) {
   return resultado.insertId;
 }
 
-// Retorna todas as máquinas
+
 export async function listar() {
   const sql = "SELECT * FROM maquinas ORDER BY id";
   const [resultado] = await banco.query(sql);
@@ -25,7 +25,7 @@ export async function listar() {
   return resultado;
 }
 
-// Busca uma máquina pelo ID
+
 export async function buscarPorId(id) {
   const sql = "SELECT * FROM maquinas WHERE id = ?";
   const [resultado] = await banco.query(sql, [id]);
@@ -33,7 +33,7 @@ export async function buscarPorId(id) {
   return resultado[0];
 }
 
-// Atualiza os dados de uma máquina
+
 export async function atualizar(id, maquina) {
   const sql = `
     UPDATE maquinas
@@ -52,7 +52,7 @@ export async function atualizar(id, maquina) {
   return resultado.affectedRows;
 }
 
-// Exclui uma máquina
+
 export async function deletar(id) {
   const sql = "DELETE FROM maquinas WHERE id = ?";
   const [resultado] = await banco.query(sql, [id]);
