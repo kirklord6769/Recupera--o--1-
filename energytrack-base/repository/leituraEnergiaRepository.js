@@ -47,7 +47,6 @@ export async function listarDetalhadas() {
   return resultado;
 }
 
-
 export async function buscarPorId(id) {
   const sql = `
     SELECT
